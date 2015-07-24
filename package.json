@@ -2,7 +2,7 @@
   "name": "sparkfunAdc",
   "version": "1.0.0",
   "description": "This module facilitates communication between a device host running the node.js mraa library (such as an Intel Edison) and a Sparkfun ADC block.",
-  "main": "./sparfunAdc.js",
+  "main": "./sparkfunAdc.js",
   "author": "flowthings <dev@flowthings.io> (https://github.com/flowthings/)",
   "repository": {
     "type": "git",
