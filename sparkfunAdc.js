@@ -109,10 +109,7 @@ exports.Adc.prototype.adcRead = function() {
 
   var readConfig = this.adc.readWordReg(0x01);
   if (this.debug) console.log('Read 0x' + readConfig.toString(16) + ' from configuration register');
-  if (readConfig !== this.config) {
-    console.log('Desired config: ' + this.config.toString(2));
-    console.log('Read    config: ' + readConfig.toString(2));
-  }
+
   var rawData = this.adc.readWordReg(0);
   if (this.debug) console.log('Read 0x' + rawData.toString(16) + ' from ADC');
   var result = 0x0000;
