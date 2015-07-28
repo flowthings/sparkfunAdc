@@ -4,6 +4,10 @@
 
 This library facilitates communication with the [SparkFun Block for Intel® Edison - ADC](https://www.sparkfun.com/products/13046) but should reasonably support any I<sup>2</sup>C interface to the TI [ADS1015](http://www.ti.com/product/ads1015) utilizing Intel’s [mraa](http://iotdk.intel.com/docs/master/mraa/) library.
 
+## Blocking
+
+This branch uses the [sleep](https://www.npmjs.com/package/sleep) module to block **all** JS (even code outside this module) for 0.01 seconds for each read. This is to avoid a condition where the config register is set to a new value, but the reading has not yet been placed in register `0`.
+
 ## Examples
 
 ### Read Analog 0 to Ground using single shot mode with 4.096V setting on the PGA (default), with debug on:

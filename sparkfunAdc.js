@@ -10,6 +10,7 @@
  */
 
 var mraa = require('mraa');
+var usleep = require('sleep').usleep;
 
 /**
  * ADC Connection Object, by default will enable reading from AIN0 - GND
@@ -110,6 +111,9 @@ exports.Adc.prototype.adcRead = function() {
   var readConfig = this.adc.readWordReg(0x01);
   if (this.debug) console.log('Read 0x' + readConfig.toString(16) + ' from configuration register');
 
+  // sleep to allow input mux to reset and new reading to be taken
+  usleep(exports.SLEEP_DURATION_US);
+
   var rawData = this.adc.readWordReg(0);
   if (this.debug) console.log('Read 0x' + rawData.toString(16) + ' from ADC');
   var result = 0x0000;
@@ -123,6 +127,13 @@ exports.Adc.prototype.adcRead = function() {
   }
   return result;
 }
+
+/** @constant
+ *  @type {number}
+ *  @default 10000
+ */
+
+exports.SLEEP_DURATION_US = 10000;
 
 
 /** @constant
@@ -362,4 +373,3 @@ exports.COMP_QD_A2 = 0x0100;
  */
 
 exports.COMP_QD_A4 = 0x0200;
-
