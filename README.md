@@ -47,7 +47,7 @@ var a1_2v = new sparkfunAdc.Adc({
   pga: sparkfunAdc.PGA_2_048V
 });
 
-console.log("A0->GND, 4.098 Volt PGA = " + a0_4v.adcRead());
+console.log("A0->GND, 4.096 Volt PGA = " + a0_4v.adcRead());
 console.log("A1->GND, 2.048 Volt PGA = " + a1_2v.adcRead());
 
 ```
